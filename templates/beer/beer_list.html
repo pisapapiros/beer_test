@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+    <h3>{% trans "Beers" %}</h3>
+    <div>
+        <ul>
+            {% for obj in object_list %}
+                <li><a href="{% url 'detail-beer' obj.pk %}">{{ obj }}</a><br></li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <h3>{% trans "Actions" %}</h3>
+    <a href="{% url 'create-beer' %}">{% trans "Create" %}</a>
+{% endblock %}
