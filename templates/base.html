@@ -4,21 +4,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Beer Test</title>
-    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}" />
-    <link rel="stylesheet" type="text/css" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}"/>
+  <meta charset="UTF-8">
+  <title>Beer Test</title>
+{#  <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}" />#}
+  <link rel="stylesheet" type="text/css" href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="/static/node_modules/blueimp-file-upload/css/jquery.fileupload.css">
 </head>
 
 <body>
 
-    <div class="container">
-        <div class="title">
-            <h2>{% trans "Beer Test App" %}</h2>
-        </div>
-
-        {% block content %}{% endblock %}
+  <div class="container">
+    <div class="title">
+      <a href="{% url 'index-view' %}"><h1>{% trans "Beer Test App" %}</h1></a>
     </div>
+
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- jQuery -->
+  <script src="/static/node_modules/jquery/dist/jquery.js"></script>
+
+  <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+  <script src="/static/node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+
+  <!-- The Templates plugin is included to render the upload/download listings -->
+  <script src="/static/node_modules/blueimp-tmpl/js/tmpl.min.js"></script>
+
+  <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+  <script src="/static/node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+
+  <!-- The Canvas to Blob plugin is included for image resizing functionality -->
+  <script src="/static/node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js"></script>
+
+  <!-- The basic File Upload plugin and components-->
+  <script src="/static/node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+  <script src="/static/node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+  <script src="/static/node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+  <script src="/static/node_modules/blueimp-file-upload/js/jquery.fileupload-audio.js"></script>
+  <script src="/static/node_modules/blueimp-file-upload/js/jquery.fileupload-video.js"></script>
+  <script src="/static/node_modules/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
+  <script src="/static/node_modules/blueimp-file-upload/js/jquery.fileupload-ui.js"></script>
+
+  <!-- Locale -->
+  <script src="/static/node_modules/ai-django-fileupload/locale.js"></script>
+
+  <!-- CSRF token -->
+  <script src="/static/node_modules/ai-django-fileupload/csrf.js"></script>
+
+  <!-- The main application script -->
+  <script src="/static/node_modules/ai-django-fileupload/index.js"></script>
+
+  <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
+  <!--[if gte IE 8]>
+  <script src="/static/node_modules/blueimp-file-upload/js/cors/jquery.xdr-transport.js"></script>
+  <![endif]-->
 
 </body>
 </html>

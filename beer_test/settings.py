@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'apps.beer'
+    'apps.bar',
+    'apps.beer',
+    'fileupload.apps.FileuploadConfig'
 ]
 
 MIDDLEWARE = [

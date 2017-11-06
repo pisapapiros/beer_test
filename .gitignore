@@ -5,3 +5,4 @@ media/
 *.css.map
 static/
 .idea/
+package-lock.json

@@ -14,19 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.static import static
 
-from apps.beer.views import CreateBeerView, ListBeerView, UpdateBeerView, DetailBeerView
+from beer_test.views import IndexView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    url(r'^$', ListBeerView.as_view(), name='list-beer'),
-    url(r'list', ListBeerView.as_view(), name='list-beer'),
-    url(r'create', CreateBeerView.as_view(), name='create-beer'),
-    url(r'update/(?P<pk>\d+)', UpdateBeerView.as_view(), name='update-beer'),
-    url(r'detail/(?P<pk>\d+)', DetailBeerView.as_view(), name='detail-beer'),
+    url(r'^$', IndexView.as_view(), name='index-view'),
 
-]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^bar/', include('apps.bar.urls')),
+    url(r'^beer/', include('apps.beer.urls')),
+
+    url(r'^upload/', include('fileupload.urls')),
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
